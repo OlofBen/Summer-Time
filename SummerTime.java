@@ -1,13 +1,10 @@
-import java.util.Date;
-import java.util.Map;
-
 public class SummerTime {
 
-    Map<Integer, SummerTimeDates> dates = Map.of(
-        2021, new SummerTimeDates(new Date(2021, 03, 28), new Date(2021, 10, 31)),
-        2022, new SummerTimeDates(new Date(2022, 03, 26), new Date(2022, 10, 30)),
-        2023, new SummerTimeDates(new Date(2023, 03, 26), new Date(2023, 10, 29))
-    ); 
+    SummerTimeDates[] dates = new SummerTimeDates[]{
+        new SummerTimeDates(new Date(2021, 03, 28), new Date(2021, 10, 31)),
+        new SummerTimeDates(new Date(2022, 03, 26), new Date(2022, 10, 30)),
+        new SummerTimeDates(new Date(2023, 03, 26), new Date(2023, 10, 29))
+    }; 
         
     
     public static void main(String[] args) {
@@ -23,7 +20,15 @@ public class SummerTime {
 
 
     public boolean isSummerTime(Date date) {
-        return dates.get(date.getYear()).isSummerTime(date);
+        return get(date.year).isSummerTime(date);
+    }
+
+    public SummerTimeDates get(int year){
+        for (int i = 0; i < dates.length; i++) {
+            if (year == dates[i].startDate.year) return dates[i];
+        }
+        throw new IllegalArgumentException();
+
     }
 
 
@@ -39,4 +44,5 @@ public class SummerTime {
             return date.after(startDate) && date.before(endDate);
         }
     }
+    
 }

@@ -11,7 +11,7 @@ public class SummerTime {
         //Test Cases
         var s = new SummerTime();
         System.out.println(s.isSummerTime(new Date(2022,03,25))); //False
-        System.out.println(s.isSummerTime(new Date(2022,03,27))); //True
+        System.out.println(s.isSummerTime(new Date(2022,03,26))); //True
         System.out.println(s.isSummerTime(new Date(2022,10,29))); //True
         System.out.println(s.isSummerTime(new Date(2023,10,29))); //False
         System.out.println(s.isSummerTime(new Date(2022,10,30))); //False

@@ -19,16 +19,18 @@ public class Date{
         else return false;
     } 
 
-    public boolean after(Date ohter){
-        if (year == ohter.year){
-            if (month == ohter.month){
-                return day >= ohter.day;
-            } else return month >= ohter.month;
-        } else return year >= ohter.year;
+    public boolean after(Date other){
+        if (year != other.year) {
+            return year > other.year;
+        } else if (month != other.month) {
+            return month > other.month;
+        } else {
+            return day >= other.day;
+        }
     }
 
     public boolean before(Date other){
-        return !after(other) && !equals(other);
+        return !after(other);
     }
     
 }
